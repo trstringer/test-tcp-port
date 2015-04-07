@@ -44,7 +44,10 @@ function Test-Port {
         catch {
             "Connection unsuccessful to $($IpAddressToTest.ToString()):$Port"
         }
+        finally {
+            if ($TcpClient.Connected) {
+                $TcpClient.Close()
+            }
+        }
     }
-
-    $TcpClient.Dispose()
 }
