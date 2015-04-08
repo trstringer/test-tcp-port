@@ -1,3 +1,14 @@
+param (
+    [Parameter(Mandatory = $false)]
+    [string]$HostName,
+
+    [Parameter(Mandatory = $false)]
+    [string]$IpAddress,
+
+    [Parameter(Mandatory = $true)]
+    [int]$Port
+)
+
 function Test-Port {
     param (
         [Parameter(Mandatory = $false)]
@@ -51,3 +62,5 @@ function Test-Port {
         }
     }
 }
+
+Test-Port -HostName $HostName -IpAddress $IpAddress -Port $Port
